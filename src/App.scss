@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--default: #e2e8f0;
+	--light: white;
+	--dark: #cbd5e1;
+	--text: #000;
+	--accent: #ef4444;
+	--dark-accent: #b91c1c;
+}
+
+.theme-system {
+	@media (prefers-color-scheme: light) {
+		--default: #e2e8f0;
+		--light: white;
+		--dark: #cbd5e1;
+		--text: #000;
+	}
+	@media (prefers-color-scheme: dark) {
+		--default: #43464a;
+		--light: #5c5f63;
+		--dark: #34373b;
+		--text: #fff;
+	}
+}
+
+.theme-light {
+	--default: #e2e8f0;
+	--light: #f1f5f9;
+	--dark: #cbd5e1;
+	--text: #000;
+}
+
+.theme-dark {
+	--default: #43464a;
+	--light: #5c5f63;
+	--dark: #34373b;
+	--text: #fff;
+}
+
+* {
+	@apply select-none text-text pointer-events-auto;
+}
+
+body {
+	@apply w-screen h-screen overflow-hidden m-0 bg-default;
+}
+
+button {
+	@apply cursor-pointer bg-light hover:bg-dark rounded-md;
+	&:disabled {
+		@apply bg-dark;
+	}
+}
+
+img {
+	@apply pointer-events-none;
+}
+
+h1 {
+	@apply font-medium;
+}
+
+h6 {
+	@apply font-light;
+}
+
+@keyframes scaleIn {
+	0% {
+		opacity: 0;
+		transform: scale(0.9);
+	}
+	50% {
+		opacity: 0.3;
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+.react-select {
+	&__control {
+		@apply cursor-pointer shadow-none border-none bg-dark group-hover:bg-light #{!important};
+	}
+	&__single-value {
+		@apply text-text #{!important};
+	}
+	&__menu {
+		@apply bg-dark w-max min-w-full #{!important};
+		animation: scaleIn 0.1s ease-in-out;
+	}
+	&__option {
+		@apply cursor-pointer #{!important};
+
+		&--is-focused {
+			@apply bg-light #{!important};
+		}
+
+		&--is-selected {
+			@apply bg-accent #{!important};
+		}
+	}
+	&__indicator-separator {
+		@apply bg-text #{!important};
+	}
+	&__indicator {
+		@apply text-text #{!important};
+	}
+}

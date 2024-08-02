@@ -1,34 +1,41 @@
 {
-  "productName": "unlock-youtube",
-  "version": "0.0.0",
-  "identifier": "com.tauri.dev",
-  "build": {
-    "beforeDevCommand": "npm run dev",
-    "devUrl": "http://localhost:1420",
-    "beforeBuildCommand": "npm run build",
-    "frontendDist": "../dist"
-  },
-  "app": {
-    "windows": [
-      {
-        "title": "unlock-youtube",
-        "width": 800,
-        "height": 600
-      }
-    ],
-    "security": {
-      "csp": null
-    }
-  },
-  "bundle": {
-    "active": true,
-    "targets": "all",
-    "icon": [
-      "icons/32x32.png",
-      "icons/128x128.png",
-      "icons/128x128@2x.png",
-      "icons/icon.icns",
-      "icons/icon.ico"
-    ]
-  }
+	"productName": "Unlock Youtube",
+	"version": "0.0.0",
+	"identifier": "com.fatum23.unlock-youtube",
+	"build": {
+		"beforeDevCommand": "npm run dev",
+		"devUrl": "http://localhost:1420",
+		"beforeBuildCommand": "npm run build",
+		"frontendDist": "../dist"
+	},
+	"app": {
+		"windows": [
+			{
+				"label": "main",
+				"title": "Unlock Youtube",
+				"width": 300,
+				"height": 400,
+				"center": true,
+				"maximizable": false,
+				"resizable": false,
+				"visible": false
+			}
+		],
+		"security": {
+			"csp": null
+		}
+	},
+	"bundle": {
+		"active": true,
+		"targets": "nsis",
+		"icon": ["../icon.ico"],
+		"externalBin": ["./goodbyedpi"],
+		"resources": [
+			"./WinDivert.dll",
+			"./WinDivert64.sys",
+			"russia-blacklist.txt",
+			"russia-youtube.txt"
+		],
+		"shortDescription": "Unlock Youtube"
+	}
 }
