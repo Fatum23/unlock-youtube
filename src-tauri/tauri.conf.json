@@ -27,7 +27,7 @@
 	},
 	"bundle": {
 		"active": true,
-		"targets": "nsis",
+		"targets": "all",
 		"icon": ["../icon.ico"],
 		"externalBin": ["./goodbyedpi"],
 		"resources": [
@@ -36,6 +36,15 @@
 			"russia-blacklist.txt",
 			"russia-youtube.txt"
 		],
-		"shortDescription": "Unlock Youtube"
+		"shortDescription": "Unlock Youtube",
+		"createUpdaterArtifacts": true
+	},
+	"plugins": {
+		"updater": {
+			"pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEUzQzg0QzE4RDFDMTBCNEUKUldST0M4SFJHRXpJNCszT1dqM3ExUnloZHB2RTlQQTROcEplL1lWbGVmSzlWRmYvcHAvbldiVlYK",
+			"endpoints": [
+				"https://github.com/Fatum23/unlock-youtube/releases/latest/download/latest.json"
+			]
+		}
 	}
 }
